@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Menu, Heart } from "lucide-react";
 import StoreCard from "@/components/StoreCard";
 import Hero from "@/components/Hero";
 import { restaurants, Restaurant } from "@/data/restaurants";

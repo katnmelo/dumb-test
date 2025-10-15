@@ -21,7 +21,7 @@ export default function StarDish({ emoji, name, review, className = '' }: StarDi
         {/* Right side - Quote with smaller attribution */}
         <div className="space-y-4">
           <p className="text-3xl md:text-4xl font-semibold text-stone-900 leading-snug">
-            "The best fried chicken sandwich in manila."
+            &ldquo;The best fried chicken sandwich in manila.&rdquo;
           </p>
           <p className="text-base md:text-lg text-stone-600">
             — Sarah Chen, Some Kinda Magazine

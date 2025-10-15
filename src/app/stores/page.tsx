@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { restaurants } from "../../../data/restaurants";
-import DynamicHero from "../../components/DynamicHero";
-import RestaurantNav from "../../components/RestaurantNav";
-import StarDish from "../../components/StarDish";
+import { restaurants } from "@/data/restaurants";
+import DynamicHero from "@/components/DynamicHero";
+import RestaurantNav from "@/components/RestaurantNav";
+import StarDish from "@/components/StarDish";
 
 
 export default function StoresPage() {

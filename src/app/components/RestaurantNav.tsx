@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Restaurant, restaurants as allRestaurants } from '@/data/restaurants';
@@ -11,16 +10,19 @@ interface RestaurantNavProps {
   onRestaurantSelect?: (restaurant: Restaurant) => void;
 }
 
-// Restaurant data with icons (you can replace these with actual icons/images)
-const restaurants: Restaurant[] = [
-  { id: "bad-bird-mega", name: "Bad Bird Mega", icon: "🐔" },
-  { id: "bad-bird-the-grid", name: "Bad Bird The Grid", icon: "🐓" },
-  { id: "flowerboy-opus", name: "Flowerboy Opus", icon: "🌸" },
-  { id: "flowerboy-the-grid", name: "Flowerboy The Grid", icon: "🌺" },
-  { id: "fowlbread", name: "Fowlbread", icon: "🥖" },
-  { id: "tender-beef-shop", name: "Tender Beef Shop", icon: "🥩" },
-  { id: "thank-you-seafood", name: "Thank You Seafood", icon: "🦐" }
-];
+// Restaurant icon mapping
+const getRestaurantIcon = (id: string): string => {
+  const iconMap: Record<string, string> = {
+    "bad-bird-mega": "🐔",
+    "bad-bird-the-grid": "🐓", 
+    "flowerboy-opus": "🌸",
+    "flowerboy-the-grid": "🌺",
+    "fowlbread": "🥖",
+    "tender-beef-shop": "🥩",
+    "thank-you-seafood": "🦐"
+  };
+  return iconMap[id] || "🍽️";
+};
 
 export default function RestaurantNav({ selectedRestaurantId, onRestaurantSelect }: RestaurantNavProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -63,15 +65,11 @@ export default function RestaurantNav({ selectedRestaurantId, onRestaurantSelect
             className="flex gap-6 overflow-x-auto scrollbar-hide flex-1"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {restaurants.map((restaurant) => {
+            {allRestaurants.map((restaurant) => {
               const isSelected = selectedRestaurantId === restaurant.id;
               const handleClick = () => {
                 if (onRestaurantSelect) {
-                  // Find the full restaurant data from the imported restaurants
-                  const fullRestaurant = allRestaurants.find(r => r.id === restaurant.id);
-                  if (fullRestaurant) {
-                    onRestaurantSelect(fullRestaurant);
-                  }
+                  onRestaurantSelect(restaurant);
                 }
               };
 
@@ -86,7 +84,7 @@ export default function RestaurantNav({ selectedRestaurantId, onRestaurantSelect
                   }`}
                 >
                   <div className="text-3xl group-hover:scale-110 transition-transform">
-                    {restaurant.icon}
+                    {getRestaurantIcon(restaurant.id)}
                   </div>
                   <span className="text-xs text-center leading-tight">
                     {restaurant.name}
