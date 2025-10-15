@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LOWBROW Restaurant App
 
-## Getting Started
+A modern Next.js restaurant showcase application featuring:
 
-First, run the development server:
+## 🍽️ Features
+
+- **Dynamic Hero Sections** - Interactive hero sections that change based on restaurant selection
+- **Floating Navigation** - Horizontal scrolling restaurant navigation with arrow controls
+- **Responsive Design** - Beautiful UI that works on all devices
+- **Restaurant Cards** - Detailed restaurant information with menus and reservations
+- **Modal System** - Interactive modals for menus and reservations
+
+## 🚀 Live Demo
+
+The app is currently running locally at: http://localhost:3000
+
+## 🛠️ Tech Stack
+
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful icons
+- **Radix UI** - Accessible component primitives
+
+## 📱 Pages
+
+- **Home** (`/`) - Restaurant showcase with hero section and cards
+- **Stores** (`/stores`) - Interactive restaurant selection with dynamic content
+- **Individual Store Pages** (`/stores/[id]`) - Detailed restaurant pages
+
+## 🏪 Restaurants
+
+1. **Bad Bird Mega** - Korean fried chicken
+2. **Bad Bird The Grid** - Korean fried chicken
+3. **Flowerboy Opus** - Asian fusion
+4. **Flowerboy The Grid** - Asian fusion  
+5. **Fowlbread** - Bread and pastries
+6. **Tender Beef Shop** - Premium beef
+7. **Thank You Seafood** - Fresh seafood
+
+## 🚀 Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app is ready for deployment to:
+- Vercel (recommended for Next.js)
+- Netlify
+- GitHub Pages
+- Any static hosting service
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Design
 
-## Learn More
+- Modern, clean interface
+- Mobile-first responsive design
+- Smooth animations and transitions
+- Accessible components
+- Professional restaurant branding
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ for the LOWBROW restaurant group.
