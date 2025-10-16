@@ -68,3 +68,5 @@ The app is ready for deployment to:
 - Professional restaurant branding
 
 Built with ❤️ for the LOWBROW restaurant group.
+
+Last updated: $(date)
