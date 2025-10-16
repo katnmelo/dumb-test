@@ -12,28 +12,22 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-stone-800 border-b border-stone-700">
+    <header className="absolute top-0 z-50 w-full">
       <nav className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="font-semibold tracking-wide text-lg text-stone-50">
+          <Link href="/" className="font-semibold tracking-wide text-lg text-white drop-shadow-lg">
             LOWBROW
           </Link>
           
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/stores" className="text-sm text-stone-300 hover:text-stone-50 transition-colors">
-              Stores
-            </Link>
-            <Link href="/reserve" className="text-sm text-stone-300 hover:text-stone-50 transition-colors">
-              Reserve
-            </Link>
-            <Link href="/contact" className="text-sm text-stone-300 hover:text-stone-50 transition-colors">
+            <Link href="/contact" className="text-sm text-white/90 hover:text-white transition-colors drop-shadow-md">
               Contact
             </Link>
-            <Link href="/jobs" className="text-sm text-stone-300 hover:text-stone-50 transition-colors">
+            <Link href="/jobs" className="text-sm text-white/90 hover:text-white transition-colors drop-shadow-md">
               Jobs
             </Link>
-            <Link href="/about" className="text-sm text-stone-300 hover:text-stone-50 transition-colors">
+            <Link href="/about" className="text-sm text-white/90 hover:text-white transition-colors drop-shadow-md">
               About
             </Link>
           </div>
@@ -42,7 +36,7 @@ export default function Navbar() {
           <button 
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onClick={toggleMenu}
-            className="md:hidden h-8 w-8 grid place-items-center rounded-md border border-stone-600 text-stone-300 hover:bg-stone-700 hover:text-stone-50 transition-colors"
+            className="md:hidden h-8 w-8 grid place-items-center text-white hover:text-white/80 transition-colors flex-shrink-0"
           >
             {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -50,39 +44,25 @@ export default function Navbar() {
 
         {/* Mobile navigation menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-stone-700 pt-4">
+          <div className="md:hidden mt-4 pb-4 border-t border-white/30 pt-4 bg-black/20 backdrop-blur-sm rounded-lg">
             <div className="flex flex-col space-y-4">
               <Link 
-                href="/stores" 
-                className="text-sm text-stone-300 hover:text-stone-50 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Stores
-              </Link>
-              <Link 
-                href="/reserve" 
-                className="text-sm text-stone-300 hover:text-stone-50 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Reserve
-              </Link>
-              <Link 
                 href="/contact" 
-                className="text-sm text-stone-300 hover:text-stone-50 transition-colors"
+                className="text-sm text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
               <Link 
                 href="/jobs" 
-                className="text-sm text-stone-300 hover:text-stone-50 transition-colors"
+                className="text-sm text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Jobs
               </Link>
               <Link 
                 href="/about" 
-                className="text-sm text-stone-300 hover:text-stone-50 transition-colors"
+                className="text-sm text-white/90 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About

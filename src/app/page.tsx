@@ -1,43 +1,50 @@
-import StoreCard from "@/components/StoreCard";
-import Hero from "@/components/Hero";
-import { restaurants, Restaurant } from "@/data/restaurants";
+"use client";
+
+import { useState } from "react";
+import { restaurants } from "@/data/restaurants";
+import DynamicHero from "@/components/DynamicHero";
+import RestaurantNav from "@/components/RestaurantNav";
+import StarDish from "@/components/StarDish";
 
 export default function Home() {
-  return (
-    <>
-      {/* Hero - Full bleed */}
-      <Hero
-        title="Welcome to LOWBROW"
-        subtitle="Discover amazing restaurants and delicious food"
-        buttonText="Explore Stores"
-        buttonHref="/stores"
-      />
+  const [selectedRestaurant, setSelectedRestaurant] = useState(restaurants[0]);
 
-      {/* Main content container */}
-      <main className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 space-y-8 min-h-screen">
-        {/* Restaurant Store Cards */}
-        <section className="space-y-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-2">Our Restaurants</h2>
-            <p className="text-muted-foreground">Choose from our amazing collection of dining experiences</p>
-          </div>
-          
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-            {restaurants.map((restaurant: Restaurant) => (
-              <StoreCard
-                key={restaurant.id}
-                id={restaurant.id}
-                name={restaurant.name}
-                address={restaurant.address}
-                phone={restaurant.phone}
-                hours={restaurant.hours}
-                menuUrl={restaurant.menuUrl}
-                reserveUrl={restaurant.reserveUrl}
-              />
-            ))}
-          </div>
-        </section>
+  return (
+    <div className="relative">
+      {/* Dynamic Hero Section */}
+      <DynamicHero restaurant={selectedRestaurant} />
+      
+      {/* Floating Restaurant Navigation */}
+      <RestaurantNav 
+        selectedRestaurantId={selectedRestaurant.id}
+        onRestaurantSelect={(restaurant) => setSelectedRestaurant(restaurant)}
+      />
+      
+      {/* Order Section - moved above main content */}
+      <div className="max-w-6xl mx-auto p-8 pt-24">
+        <div className="bg-stone-50 rounded-2xl p-8 border border-stone-200">
+          <h3 className="text-2xl font-semibold text-stone-800 mb-4">Ready to Order?</h3>
+          <p className="text-stone-600 mb-6">Skip the wait and order directly through Grab for quick delivery or pickup.</p>
+          <a 
+            href="grab://food" 
+            className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+          >
+            Order on Grab
+          </a>
+        </div>
+      </div>
+
+      {/* Main Content with top padding to account for floating nav */}
+      <main className="max-w-6xl mx-auto p-8 space-y-8">
+        {/* Star Dish Section - only for selected restaurant */}
+        {selectedRestaurant.starDish && (
+          <StarDish
+            emoji={selectedRestaurant.starDish.emoji}
+            name={selectedRestaurant.starDish.name}
+            review={selectedRestaurant.starDish.review}
+          />
+        )}
       </main>
-    </>
+    </div>
   );
 }

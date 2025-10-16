@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { restaurants, Restaurant } from "@/data/restaurants";
+import { useRef, useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface RestaurantNavProps {
   selectedRestaurantId?: string;
@@ -33,9 +34,62 @@ const getRestaurantEmoji = (restaurantId: string) => {
 };
 
 export default function RestaurantNav({ selectedRestaurantId, onRestaurantSelect }: RestaurantNavProps) {
+  const scrollContainerRef = useRef<HTMLUListElement>(null);
+  const [showArrows, setShowArrows] = useState(false);
+
+  // Check if scrolling is needed
+  useEffect(() => {
+    const checkScrollNeeded = () => {
+      if (scrollContainerRef.current) {
+        const { scrollWidth, clientWidth } = scrollContainerRef.current;
+        setShowArrows(scrollWidth > clientWidth);
+      }
+    };
+
+    // Check on mount and resize
+    checkScrollNeeded();
+    window.addEventListener('resize', checkScrollNeeded);
+    
+    return () => window.removeEventListener('resize', checkScrollNeeded);
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -200,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 200,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className="fixed top-16 left-1/2 transform -translate-x-1/2 z-40 bg-white/95 backdrop-blur-sm border border-stone-200 rounded-2xl shadow-lg px-4 py-2">
-      <ul className="inline-flex items-stretch overflow-x-auto overflow-y-hidden transition-colors text-black py-1 scrollbar-hide">
+    <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 bg-white/95 backdrop-blur-sm border border-stone-200 rounded-2xl shadow-lg px-4 py-4 mx-auto max-w-fit">
+      <div className="flex items-center gap-3">
+        {/* Left Arrow - only show if scrolling is needed */}
+        {showArrows && (
+          <button
+            onClick={scrollLeft}
+            className="flex-shrink-0 h-6 w-6 p-0 hover:bg-stone-100 rounded-full flex items-center justify-center transition-colors"
+          >
+            <ChevronLeft className="h-3 w-3 text-stone-600" />
+          </button>
+        )}
+
+        {/* Scrollable Restaurant List */}
+        <ul 
+          ref={scrollContainerRef}
+          className="flex items-stretch overflow-x-auto overflow-y-hidden transition-colors text-black py-1 scrollbar-hide flex-1 gap-2"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
         {restaurants.map((restaurant) => {
           const emoji = getRestaurantEmoji(restaurant.id);
           return (
@@ -64,7 +118,18 @@ export default function RestaurantNav({ selectedRestaurantId, onRestaurantSelect
             </li>
           );
         })}
-      </ul>
+        </ul>
+
+        {/* Right Arrow - only show if scrolling is needed */}
+        {showArrows && (
+          <button
+            onClick={scrollRight}
+            className="flex-shrink-0 h-6 w-6 p-0 hover:bg-stone-100 rounded-full flex items-center justify-center transition-colors"
+          >
+            <ChevronRight className="h-3 w-3 text-stone-600" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
