@@ -2,20 +2,18 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { X } from "lucide-react"
 import Image from "next/image"
 
-export function PhotoDialog() {
+interface PhotoDialogProps {
+  menuUrl: string;
+  restaurantName: string;
+}
+
+export function PhotoDialog({ menuUrl, restaurantName }: PhotoDialogProps) {
   return (
     <Dialog>
-      {/* Trigger thumbnail */}
+      {/* Menu Button */}
       <DialogTrigger asChild>
-        <button className="hover:opacity-80 transition">
-          <div className="w-[300px] h-[200px] rounded-lg overflow-hidden border">
-            <iframe
-              src="/images/placeholders/placeholder-menu.pdf"
-              className="w-full h-full"
-              title="Menu thumbnail"
-              loading="lazy"
-            />
-          </div>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full">
+          View Menu
         </button>
       </DialogTrigger>
 
@@ -25,21 +23,21 @@ export function PhotoDialog() {
       >
         {/* Close (X) button */}
         <button
-          className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+          className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 bg-black/50 rounded-full p-2"
           aria-label="Close"
           onClick={() => {
             const evt = new MouseEvent("mousedown", { bubbles: true })
             document.body.dispatchEvent(evt) // triggers Dialog's click-outside behavior
           }}
         >
-          <X size={28} />
+          <X size={24} />
         </button>
 
         {/* Fullscreen PDF */}
         <iframe
-          src="/images/placeholders/placeholder-menu.pdf"
+          src={menuUrl}
           className="w-full h-full"
-          title="Full menu"
+          title={`${restaurantName} Menu`}
           loading="lazy"
         />
       </DialogContent>

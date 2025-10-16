@@ -30,7 +30,7 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
             </h1>
             {/* Menu Dialog on Hero */}
             <div className="mt-6 flex justify-center">
-              <PhotoDialog />
+              <PhotoDialog menuUrl={restaurant.menuUrl} restaurantName={restaurant.name} />
             </div>
           </div>
         </div>

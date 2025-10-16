@@ -10,6 +10,7 @@ interface StoreCardProps {
   address: string;
   phone: string;
   hours: string;
+  menuUrl: string;
   reserveUrl: string;
   className?: string;
 }
@@ -20,6 +21,7 @@ export default function StoreCard({
   address,
   phone,
   hours,
+  menuUrl,
   reserveUrl,
   className = ''
 }: StoreCardProps) {
@@ -62,7 +64,7 @@ export default function StoreCard({
 
         {/* Menu Dialog */}
         <div className="w-full">
-          <PhotoDialog />
+          <PhotoDialog menuUrl={menuUrl} restaurantName={name} />
         </div>
 
         {/* Reserve Now Button */}
