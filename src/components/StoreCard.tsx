@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { PhotoDialog } from "./menu-photo-dialog";
 
 interface StoreCardProps {
   id: string;
@@ -10,7 +10,6 @@ interface StoreCardProps {
   address: string;
   phone: string;
   hours: string;
-  menuUrl: string;
   reserveUrl: string;
   className?: string;
 }
@@ -21,7 +20,6 @@ export default function StoreCard({
   address,
   phone,
   hours,
-  menuUrl,
   reserveUrl,
   className = ''
 }: StoreCardProps) {
@@ -62,24 +60,10 @@ export default function StoreCard({
           <p className="text-sm text-muted-foreground leading-relaxed">{hours}</p>
         </div>
 
-        {/* Menu Accordion */}
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="menu">
-            <AccordionTrigger className="text-sm font-medium">
-              View Menu
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="w-full h-96 rounded-lg overflow-hidden border">
-                <iframe
-                  src={menuUrl}
-                  className="w-full h-full"
-                  title={`${name} Menu`}
-                  loading="lazy"
-                />
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        {/* Menu Dialog */}
+        <div className="w-full">
+          <PhotoDialog />
+        </div>
 
         {/* Reserve Now Button */}
         <Button asChild className="w-full mt-6">

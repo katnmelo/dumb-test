@@ -1,15 +1,14 @@
 "use client";
-import { useState } from "react";
 import { Restaurant } from "@/data/restaurants";
 import CustomImage from "./Image";
-import { MapPin, Phone, Clock, X } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
+import { PhotoDialog } from "./menu-photo-dialog";
 
 interface DynamicHeroProps {
   restaurant: Restaurant;
 }
 
 export default function DynamicHero({ restaurant }: DynamicHeroProps) {
-  const [modalType, setModalType] = useState<null | "menu" | "reserve">(null);
   return (
     <div className="relative">
       {/* Hero Image */}
@@ -29,14 +28,9 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
             <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg text-center">
               {restaurant.name}
             </h1>
-            {/* Action Button on Hero */}
+            {/* Menu Dialog on Hero */}
             <div className="mt-6 flex justify-center">
-              <button
-                onClick={() => setModalType("menu")}
-                className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center"
-              >
-                See Menu
-              </button>
+              <PhotoDialog />
             </div>
           </div>
         </div>
@@ -74,27 +68,6 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
       </div>
       
       {/* Removed description and quote section as requested */}
-
-      {/* Modal overlay for in-site menu/reserve */}
-      {modalType && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-5xl h-[80vh] bg-white rounded-xl overflow-hidden shadow-2xl">
-            <button
-              aria-label="Close"
-              onClick={() => setModalType(null)}
-              className="absolute right-3 top-3 z-10 inline-flex items-center justify-center rounded-md border border-stone-300 bg-white/90 p-2 text-stone-700 hover:bg-white"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <iframe
-              src={modalType === "menu" ? restaurant.menuUrl : restaurant.reserveUrl}
-              className="w-full h-full"
-              title={modalType === "menu" ? `${restaurant.name} Menu` : `${restaurant.name} Reservations`}
-              loading="lazy"
-            />
-          </div>
-        </div>
-      )}
 
     </div>
   );
