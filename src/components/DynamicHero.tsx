@@ -29,19 +29,13 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
             <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg text-center">
               {restaurant.name}
             </h1>
-            {/* Action Buttons on Hero */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+            {/* Action Button on Hero */}
+            <div className="mt-6 flex justify-center">
               <button
                 onClick={() => setModalType("menu")}
                 className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-center"
               >
-                View Menu
-              </button>
-              <button
-                onClick={() => setModalType("reserve")}
-                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors text-center"
-              >
-                Reserve Now
+                See Menu
               </button>
             </div>
           </div>
