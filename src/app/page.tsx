@@ -54,6 +54,21 @@ export default function Home() {
 
       {/* Reviews Section - Google Maps Reviews */}
       <Reviews />
+
+      {/* 3D GIF Section - Before Footer */}
+      <div className="max-w-6xl mx-auto p-8 text-center">
+        <div className="bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl p-8 border border-orange-200">
+          <h3 className="text-2xl font-semibold text-orange-800 mb-4">Experience Our Food</h3>
+          <p className="text-orange-600 mb-6">See our delicious dishes come to life</p>
+          <div className="flex justify-center">
+            <img 
+              src="/3d/placeholder-3d.gif" 
+              alt="3D Food Animation" 
+              className="max-w-md rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
