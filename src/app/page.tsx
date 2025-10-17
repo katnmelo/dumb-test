@@ -65,12 +65,12 @@ export default function Home() {
             />
             {/* 3D GIF */}
             <img 
-              src="/3d/placeholder-3d.gif" 
+              src="/images/placeholders/3d-animation.gif" 
               alt="3D Food Animation" 
               className="max-w-md rounded-lg shadow-lg"
               onError={(e) => {
-                console.log("GIF failed to load:", e);
-                e.target.style.display = 'none';
+                console.log("GIF failed to load, trying alternative path");
+                e.target.src = "/3d/placeholder-3d.gif";
               }}
               onLoad={() => console.log("GIF loaded successfully")}
             />
