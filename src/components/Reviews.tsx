@@ -3,13 +3,12 @@
 import { Star, MapPin, ExternalLink } from 'lucide-react';
 
 export default function Reviews() {
-  console.log("Reviews component is rendering!");
   return (
     <section className="bg-background border-t border-border">
       {/* Animated Reviews Marquee */}
       <div className="bg-stone-50 py-8 overflow-hidden">
         <div className="marquee__wrapper">
-          <div className="marquee__content" style={{ display: 'flex' }}>
+          <div className="marquee__content">
             {[...Array(3)].map((_, loopIndex) => (
               <div key={loopIndex} className="flex space-x-8">
                 {/* Review 1 */}

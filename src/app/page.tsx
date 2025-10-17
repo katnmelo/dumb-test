@@ -50,11 +50,6 @@ export default function Home() {
 
       {/* Reviews Section - Google Maps Reviews */}
       <Reviews />
-      
-      {/* Debug: Visible test section */}
-      <div className="bg-red-500 text-white p-8 text-center text-2xl font-bold">
-        DEBUG: Reviews section should be above this red box
-      </div>
     </div>
   );
 }
