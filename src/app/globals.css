@@ -129,3 +129,53 @@
 .scrollbar-hide::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+/* Marquee tracking section styles */
+.marquee__wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee__content {
+  display: flex;
+  animation: marquee 60s linear infinite;
+  gap: 4rem;
+  width: fit-content;
+}
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pause animation on hover */
+.marquee__wrapper:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+/* Reviews marquee animation */
+.marquee__wrapper .marquee__content {
+  animation: reviews-marquee 270s linear infinite;
+}
+
+@keyframes reviews-marquee {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

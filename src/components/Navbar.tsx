@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -15,8 +16,14 @@ export default function Navbar() {
     <header className="absolute top-0 z-50 w-full">
       <nav className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="font-semibold tracking-wide text-lg text-white drop-shadow-lg">
-            LOWBROW
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logos/lowbrow-logo-horizontal.svg"
+              alt="LOWBROW"
+              width={90}
+              height={30}
+              className="h-6 w-auto drop-shadow-lg"
+            />
           </Link>
           
           {/* Desktop navigation */}

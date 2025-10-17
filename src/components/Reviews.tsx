@@ -5,6 +5,109 @@ import { Star, MapPin, ExternalLink } from 'lucide-react';
 export default function Reviews() {
   return (
     <section className="bg-background border-t border-border">
+      {/* Animated Reviews Marquee */}
+      <div className="bg-stone-50 py-8 overflow-hidden">
+        <div className="marquee__wrapper">
+          <div className="marquee__content" style={{ display: 'flex' }}>
+            {[...Array(3)].map((_, loopIndex) => (
+              <div key={loopIndex} className="flex space-x-8">
+                {/* Review 1 */}
+                <div className="marquee__item bg-white rounded-xl p-4 shadow-lg border border-stone-200 w-[500px] flex-shrink-0">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      M
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-stone-900">Maria Santos</h4>
+                      <div className="flex items-center space-x-1">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        <span className="text-xs text-stone-500 ml-2">2 days ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-stone-700 leading-relaxed">
+                    "The freshest seafood I've ever had! The grilled salmon was perfectly cooked and the crab cakes were absolutely divine."
+                  </p>
+                </div>
+
+                {/* Review 2 */}
+                <div className="marquee__item bg-white rounded-xl p-4 shadow-lg border border-stone-200 w-[500px] flex-shrink-0">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      C
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-stone-900">Carlos Mendoza</h4>
+                      <div className="flex items-center space-x-1">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        <span className="text-xs text-stone-500 ml-2">1 week ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-stone-700 leading-relaxed">
+                    "Amazing lobster bisque and the fish tacos were incredible! Great atmosphere and excellent service."
+                  </p>
+                </div>
+
+                {/* Review 3 */}
+                <div className="marquee__item bg-white rounded-xl p-4 shadow-lg border border-stone-200 w-[500px] flex-shrink-0">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      J
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-stone-900">Jennifer Lee</h4>
+                      <div className="flex items-center space-x-1">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        <span className="text-xs text-stone-500 ml-2">2 weeks ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-stone-700 leading-relaxed">
+                    "Best seafood restaurant in town! The shrimp scampi was perfect and the clam chowder was heavenly."
+                  </p>
+                </div>
+
+                {/* Review 4 */}
+                <div className="marquee__item bg-white rounded-xl p-4 shadow-lg border border-stone-200 w-[500px] flex-shrink-0">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      A
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-stone-900">Alex Rodriguez</h4>
+                      <div className="flex items-center space-x-1">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        <span className="text-xs text-stone-500 ml-2">3 days ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-stone-700 leading-relaxed">
+                    "Outstanding food quality and service! The staff was incredibly friendly and the prices are very reasonable."
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-16">
         {/* Section Header */}
         <div className="text-center mb-12">

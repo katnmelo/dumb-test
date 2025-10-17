@@ -15,7 +15,3 @@ export default function JobsPage() {
     </>
   );
 }
-
-
-
-

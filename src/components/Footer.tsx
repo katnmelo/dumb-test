@@ -1,18 +1,39 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Music } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-muted border-t border-border">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-12">
+    <>
+      {/* Floating 3D GIF - positioned between content and footer */}
+      <div className="flex justify-center -mt-12 relative z-10">
+        <Image
+          src="/3d/placeholder-3d.gif"
+          alt="3D Animation"
+          width={240}
+          height={240}
+          className="h-60 w-60 rounded-lg"
+          unoptimized
+        />
+      </div>
+      
+      <footer className="bg-muted border-t border-border">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-12">
         {/* Main footer content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand section */}
           <div className="space-y-4">
-            <Link href="/" className="font-semibold tracking-wide text-xl text-foreground hover:text-muted-foreground transition-colors">
-              LOWBROW
+            <Link href="/" className="block hover:opacity-80 transition-opacity">
+              <Image
+                src="/logos/lowbrow-logo-horizontal.svg"
+                alt="LOWBROW Logo"
+                width={120}
+                height={40}
+                className="h-8 w-auto"
+                priority
+              />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Crafting exceptional dining experiences with a modern twist. 
@@ -31,16 +52,10 @@ export default function Footer() {
                 Home
               </Link>
               <Link 
-                href="/stores" 
+                href="/about" 
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                Stores
-              </Link>
-              <Link 
-                href="/reserve" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Reserve
+                About
               </Link>
               <Link 
                 href="/jobs" 
@@ -53,12 +68,6 @@ export default function Footer() {
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Contact
-              </Link>
-              <Link 
-                href="/about" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                About
               </Link>
             </div>
           </div>
@@ -96,10 +105,10 @@ export default function Footer() {
               © 2025 LOWBROW. All rights reserved.
             </p>
             <div className="flex space-x-6 text-xs text-muted-foreground">
-              <Link href="/privacy" className="hover:text-foreground transition-colors">
+              <Link href="/contact" className="hover:text-foreground transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-foreground transition-colors">
+              <Link href="/contact" className="hover:text-foreground transition-colors">
                 Terms of Service
               </Link>
             </div>
@@ -107,5 +116,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

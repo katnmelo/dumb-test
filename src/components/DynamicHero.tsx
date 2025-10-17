@@ -9,13 +9,11 @@ interface DynamicHeroProps {
 }
 
 export default function DynamicHero({ restaurant }: DynamicHeroProps) {
-  // Array of 5 placeholder images (using available ones and duplicating to reach 5)
+  // Array of unique placeholder images for the carousel
   const images = [
     '/images/placeholders/placeholder.jpg',
     '/images/placeholders/placeholder-cutout.png',
-    '/images/placeholders/placeholder-spot.png',
-    '/images/placeholders/placeholder.jpg', // Duplicate to make 5
-    '/images/placeholders/placeholder-cutout.png' // Another duplicate
+    '/images/placeholders/placeholder-spot.png'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
