@@ -65,6 +65,12 @@ export default function Home() {
               src="/3d/placeholder-3d.gif" 
               alt="3D Food Animation" 
               className="max-w-md rounded-lg shadow-lg"
+              style={{ maxHeight: '400px', objectFit: 'contain' }}
+              onError={(e) => {
+                console.log("GIF failed to load");
+                e.target.style.display = 'none';
+              }}
+              onLoad={() => console.log("GIF loaded successfully")}
             />
           </div>
         </div>
