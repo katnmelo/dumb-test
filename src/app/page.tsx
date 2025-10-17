@@ -51,42 +51,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 3D Animation Section */}
-      <div className="max-w-6xl mx-auto p-8 text-center">
-        <div className="bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl p-8 border border-orange-200">
-          <h3 className="text-2xl font-semibold text-orange-800 mb-4">Experience Our Food</h3>
-          <p className="text-orange-600 mb-6">See our delicious dishes come to life</p>
-          <div className="flex justify-center space-x-4">
-            {/* CSS Animated Food Icon */}
-            <div className="relative max-w-md rounded-lg shadow-lg bg-white p-8">
-              <div className="animate-bounce text-6xl mb-4">🍕</div>
-              <div className="animate-pulse text-4xl mb-2">🍔</div>
-              <div className="animate-ping text-5xl">🍰</div>
-              <p className="text-orange-600 mt-4 font-medium">Fresh & Delicious</p>
-            </div>
-            
-            {/* Try MOV as video */}
-            <div className="relative max-w-md rounded-lg shadow-lg overflow-hidden">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full h-auto rounded-lg"
-                onError={(e) => {
-                  console.log("Video failed to load");
-                  e.target.style.display = 'none';
-                }}
-                onLoadStart={() => console.log("Video loading started")}
-              >
-                <source src="/3d/placeholder-3d.mov" type="video/quicktime" />
-                <source src="/3d/placeholder-3d.glb" type="model/gltf-binary" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Reviews Section - Google Maps Reviews */}
       <Reviews />
