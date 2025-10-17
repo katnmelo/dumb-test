@@ -3,6 +3,7 @@
 import { Star, MapPin, ExternalLink } from 'lucide-react';
 
 export default function Reviews() {
+  console.log("Reviews component is rendering!");
   return (
     <section className="bg-background border-t border-border">
       {/* Animated Reviews Marquee */}
