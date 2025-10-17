@@ -50,6 +50,9 @@ export default function Home() {
 
       {/* Reviews Section - Google Maps Reviews */}
       <Reviews />
+      
+      {/* Debug: Force rebuild */}
+      <div className="hidden">Force rebuild</div>
     </div>
   );
 }
