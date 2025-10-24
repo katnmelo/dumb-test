@@ -86,7 +86,7 @@ export default function StoreInfoCard({
   }, [checkIfOpen]);
 
   return (
-    <div className={`rounded-lg p-4 max-w-md ${className}`}>
+    <div className={`max-w-md ${className}`}>
       {/* Hours Section - Single row with status and dropdown */}
       <div className="py-4 border-b border-gray-200">
         <button 
