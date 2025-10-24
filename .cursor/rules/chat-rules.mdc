@@ -13,3 +13,5 @@ alwaysApply: true
 - Keep answers visually easy to follow — use bullets, spacing, and bold key points.
 
 Always open the local host in browser after making visual changes.
+
+Always open the live vercel site after git push to main.
