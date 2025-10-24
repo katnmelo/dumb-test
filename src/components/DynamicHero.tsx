@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Restaurant } from "@/data/restaurants";
-import CustomImage from "./Image";
+import Image from "next/image";
 import { MapPin, Phone, Clock, X } from "lucide-react";
 
 interface DynamicHeroProps {
@@ -15,7 +15,7 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
     <div className="relative">
       {/* Hero Image */}
       <div className="relative h-96 md:h-[500px] overflow-hidden">
-        <CustomImage
+        <Image
           src={restaurant.heroImage || '/images/placeholders/placeholder.jpg'}
           alt={`${restaurant.name} restaurant`}
           width={1200}
