@@ -5,7 +5,7 @@ export default function ContactPage() {
       <div className="bg-stone-800 text-white py-16">
         <div className="max-w-3xl mx-auto px-8 text-center">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-stone-300">We'd love to hear from you</p>
+          <p className="text-xl text-stone-300">We&apos;d love to hear from you</p>
         </div>
       </div>
       
@@ -13,7 +13,7 @@ export default function ContactPage() {
         <div className="bg-white rounded-lg p-8 shadow-sm border border-stone-200">
           <h2 className="text-2xl font-semibold text-stone-800 mb-4">Get In Touch</h2>
           <p className="text-stone-600 leading-relaxed">
-            Reach out to us for any questions or feedback. We're here to help and would love to hear from you.
+            Reach out to us for any questions or feedback. We&apos;re here to help and would love to hear from you.
           </p>
         </div>
       </main>

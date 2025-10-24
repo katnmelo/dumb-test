@@ -14,7 +14,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold text-stone-800 mb-4">Our Story</h2>
           <p className="text-stone-600 leading-relaxed">
             Learn more about our journey in creating exceptional dining experiences. 
-            We're passionate about bringing you the best flavors and memorable moments.
+            We&apos;re passionate about bringing you the best flavors and memorable moments.
           </p>
         </div>
       </main>
