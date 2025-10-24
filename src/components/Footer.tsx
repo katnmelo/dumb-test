@@ -7,18 +7,6 @@ import { Instagram, Music } from 'lucide-react';
 export default function Footer() {
   return (
     <>
-      {/* Floating 3D GIF - positioned between content and footer */}
-      <div className="flex justify-center -mt-12 relative z-10">
-        <Image
-          src="/3d/placeholder-3d.gif"
-          alt="3D Animation"
-          width={240}
-          height={240}
-          className="h-60 w-60 rounded-lg"
-          unoptimized
-        />
-      </div>
-      
       <footer className="bg-muted border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 py-12">
         {/* Main footer content */}

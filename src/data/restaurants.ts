@@ -29,7 +29,7 @@ export const restaurants: Restaurant[] = [
   {
     id: "bad-bird-mega",
     name: "Bad Bird Mega",
-    address: "Rockwell",
+    address: "2F Powerplant Mall, Rockwell",
     phone: "(555) 123-4567",
     hours: "Mon-Thu: 11am-10pm, Fri-Sat: 11am-11pm, Sun: 12pm-9pm",
     menuUrl: "/images/placeholders/placeholder-menu.pdf",
