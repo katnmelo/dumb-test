@@ -14,7 +14,7 @@ export default function JobsPage() {
           <h2 className="text-2xl font-semibold text-stone-800 mb-4">Career Opportunities</h2>
           <p className="text-stone-600 leading-relaxed">
             Discover exciting career opportunities with our growing restaurant family. 
-            We're always looking for passionate people to join our team.
+            We&apos;re always looking for passionate people to join our team.
           </p>
         </div>
       </main>
