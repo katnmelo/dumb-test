@@ -87,7 +87,7 @@ export default function StoreInfoCard({
 
   return (
     <div className={`rounded-lg p-4 max-w-md ${className}`}>
-      {/* Hours Section */}
+      {/* Hours Section - TOP */}
       <div className="py-4 border-b border-gray-200">
         <button 
           onClick={() => setIsHoursOpen(!isHoursOpen)}
@@ -122,7 +122,7 @@ export default function StoreInfoCard({
         )}
       </div>
 
-      {/* Location Section */}
+      {/* Location Section - MIDDLE */}
       <div className="py-4 border-b border-gray-200">
         <div className="flex items-start gap-2">
           <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -134,7 +134,7 @@ export default function StoreInfoCard({
         </div>
       </div>
 
-      {/* Phone Section */}
+      {/* Phone Section - BOTTOM */}
       <div className="py-4">
         <div className="flex items-center gap-2">
           <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
