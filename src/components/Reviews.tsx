@@ -30,7 +30,7 @@ export default function Reviews() {
                     </div>
                   </div>
                   <p className="text-sm text-stone-700 leading-relaxed">
-                    "The freshest seafood I've ever had! The grilled salmon was perfectly cooked and the crab cakes were absolutely divine."
+                    &ldquo;The freshest seafood I&apos;ve ever had! The grilled salmon was perfectly cooked and the crab cakes were absolutely divine.&rdquo;
                   </p>
                 </div>
 
@@ -53,7 +53,7 @@ export default function Reviews() {
                     </div>
                   </div>
                   <p className="text-sm text-stone-700 leading-relaxed">
-                    "Amazing lobster bisque and the fish tacos were incredible! Great atmosphere and excellent service."
+                    &ldquo;Amazing lobster bisque and the fish tacos were incredible! Great atmosphere and excellent service.&rdquo;
                   </p>
                 </div>
 
@@ -76,7 +76,7 @@ export default function Reviews() {
                     </div>
                   </div>
                   <p className="text-sm text-stone-700 leading-relaxed">
-                    "Best seafood restaurant in town! The shrimp scampi was perfect and the clam chowder was heavenly."
+                    &ldquo;Best seafood restaurant in town! The shrimp scampi was perfect and the clam chowder was heavenly.&rdquo;
                   </p>
                 </div>
 
@@ -99,7 +99,7 @@ export default function Reviews() {
                     </div>
                   </div>
                   <p className="text-sm text-stone-700 leading-relaxed">
-                    "Outstanding food quality and service! The staff was incredibly friendly and the prices are very reasonable."
+                    &ldquo;Outstanding food quality and service! The staff was incredibly friendly and the prices are very reasonable.&rdquo;
                   </p>
                 </div>
               </div>
