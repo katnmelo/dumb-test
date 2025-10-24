@@ -6,7 +6,6 @@ import DynamicHero from "@/components/DynamicHero";
 import RestaurantNav from "@/components/RestaurantNav";
 import StarDish from "@/components/StarDish";
 import TrackingSection from "@/components/TrackingSection";
-import Reviews from "@/components/Reviews";
 
 export default function Home() {
   const [selectedRestaurant, setSelectedRestaurant] = useState(restaurants[0]);
@@ -52,8 +51,6 @@ export default function Home() {
       </div>
 
 
-      {/* Reviews Section - Google Maps Reviews */}
-      <Reviews />
 
       {/* 3D Video Section */}
       <div className="flex justify-center">

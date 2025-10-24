@@ -87,7 +87,7 @@ export default function StoreInfoCard({
 
   return (
     <div className={`max-w-md ${className}`}>
-      {/* Hours Section - Single row with status and dropdown */}
+      {/* Row 1: Hours Section - Open/Closed + dropdown */}
       <div className="py-4 border-b border-gray-200">
         <button 
           onClick={() => setIsHoursOpen(!isHoursOpen)}
@@ -97,8 +97,8 @@ export default function StoreInfoCard({
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
             </svg>
-            <span className={`font-medium ${isOpen ? 'text-green-600' : 'text-red-600'}`}>
-              {isOpen ? 'Open now' : 'Closed'}
+            <span className={`text-sm font-medium ${isOpen ? 'text-green-600' : 'text-red-600'}`}>
+              {isOpen ? 'Open Now' : 'Closed'}
             </span>
           </div>
           <svg className={`w-4 h-4 transition-transform ${isHoursOpen ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
@@ -108,39 +108,48 @@ export default function StoreInfoCard({
         
         {isHoursOpen && (
           <div className="mt-3 space-y-1 text-sm">
-            {hours && Object.keys(hours).length > 0 ? (
-              Object.entries(hours).map(([day, time]) => (
-                <div key={day} className="flex justify-between">
-                  <span className="capitalize">{day}</span>
-                  <span>{time}</span>
-                </div>
-              ))
-            ) : (
-              <div className="text-gray-500">Hours not available</div>
+            {hours && Object.keys(hours).length > 0 && (
+              Object.entries(hours)
+                .filter(([day, time]) => time !== 'Closed')
+                .map(([day, time]) => (
+                  <div key={day} className="flex justify-between">
+                    <span className="capitalize">{day}</span>
+                    <span>{time}</span>
+                  </div>
+                ))
             )}
           </div>
         )}
       </div>
 
-      {/* Location Section */}
+      {/* Row 2: Location Section */}
       <div className="py-4 border-b border-gray-200">
         <div className="flex items-start gap-2">
           <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
           </svg>
           <div>
-            <p className="text-sm">{location}</p>
+            <p className="text-sm font-medium">Location</p>
+            <p className="text-sm text-gray-600">{location}</p>
           </div>
         </div>
       </div>
 
-      {/* Phone Section */}
+      {/* Row 3: Phone Section */}
       <div className="py-4">
-        <div className="flex items-center gap-2">
-          <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <div className="flex items-start gap-2">
+          <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
           </svg>
-          <span className="text-sm">{phone}</span>
+          <div>
+            <p className="text-sm font-medium">Phone</p>
+            <a 
+              href={`tel:${phone}`}
+              className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              {phone}
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <header className="absolute top-0 z-50 w-full">
-      <nav className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 pt-8 pb-5">
+      <nav className="w-full px-4 sm:px-6 md:px-8 pt-8 pb-5">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image

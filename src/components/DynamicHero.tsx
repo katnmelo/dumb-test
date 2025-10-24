@@ -1,7 +1,7 @@
 "use client";
 import { Restaurant } from "@/data/restaurants";
 import Image from "next/image";
-import StoreInfoCard from "./StoreInfoCard";
+import StoreInfoCard from "../app/components/StoreInfoCard";
 import { useState, useEffect } from "react";
 
 interface DynamicHeroProps {
@@ -27,6 +27,11 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
       const dayRanges = hoursString.split(', ');
       
       dayRanges.forEach(range => {
+        // Skip closed days entirely - don't add them to the hours object
+        if (range.includes('Closed')) {
+          return;
+        }
+        
         const timePart = range.split(': ')[1];
         if (!timePart) return;
         
@@ -94,7 +99,7 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
   return (
     <div className="relative">
       {/* Hero Image Carousel */}
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[70vh]">
         {images.map((image, index) => (
           <div
             key={index}
@@ -134,22 +139,22 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
             />
           ))}
         </div>
-      </div>
-      
-      {/* Restaurant Details Below Hero */}
-      <div className="bg-white py-8">
-        <div className="max-w-5xl mx-auto px-8">
-          {/* Store Information Card - 2 Column Grid */}
-          <div className="grid grid-cols-2 gap-8 mb-8">
-            <div className="col-span-1">
+
+                 {/* Floating Cards Overlapping Hero */}
+                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10 w-full max-w-5xl px-8">
+                   <div className="flex flex-col sm:grid sm:grid-cols-2 gap-6">
+            {/* StoreInfoCard - Floating */}
+            <div className="bg-gray-50 rounded-lg shadow-lg border border-gray-300 p-4">
               <StoreInfoCard
                 location={restaurant.address}
                 hours={parseHours(restaurant.hours)}
                 phone={restaurant.phone}
+                className="shadow-none border-0"
               />
             </div>
-            {/* store-info__buttons */}
-            <div className="col-span-1 flex flex-col gap-4 justify-start">
+            
+            {/* store-info__buttons - Floating */}
+            <div className="bg-gray-50 rounded-lg shadow-lg border border-gray-300 p-6 flex flex-col gap-4 justify-start">
               {/* See Menu Button */}
               <a
                 href={restaurant.menuUrl}
@@ -173,6 +178,9 @@ export default function DynamicHero({ restaurant }: DynamicHeroProps) {
           </div>
         </div>
       </div>
+      
+      {/* Spacer to account for floating cards */}
+      <div className="h-40 bg-white"></div>
       
       {/* Removed description and quote section as requested */}
 
